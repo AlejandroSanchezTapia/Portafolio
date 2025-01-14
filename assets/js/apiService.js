@@ -1,6 +1,7 @@
 
 
-const apiUrlBase = "https://localhost:7037/";
+//const apiUrlBase = "https://localhost:7037/";
+const apiUrlBase = "https://portafoliowebapi-a5g0azgkgzavhacc.mexicocentral-01.azurewebsites.net/";
 
 export async function fetchPortfolio() {
     try {
