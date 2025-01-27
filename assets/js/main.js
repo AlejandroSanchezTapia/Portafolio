@@ -1,13 +1,14 @@
-import { fetchPortfolio } from "/assets/js/apiService.js";
+import { fetchResources } from "/assets/js/apiService.js";
 
 
 
 document.addEventListener("DOMContentLoaded",() => {
   const profilePicture = document.getElementById("profile_picture");
+  const skillsContainer = document.querySelector('.skills-container');
 
   const fetchProfilePicture = async () => {
     try {
-      const data = await fetchPortfolio("fetchPortfolio");
+      const data = await fetchResources();
       if (data && data.length > 0) {
         const profileData = data.find(p => p.name === "ProfilePicture");
         if (profileData && profileData.value) {
@@ -25,7 +26,30 @@ document.addEventListener("DOMContentLoaded",() => {
       console.error("Error al obtener los datos de la API:", error);
    }
   };
+
+  const fetchSpansSkills = async () => {
+    try {
+      const data = await fetchResources();
+      if (data && data.length > 0) {
+        const profileData = data.find(p => p.name === "skillsContainer");
+        if (profileData && profileData.value) {
+          skillsContainer.innerHTML = profileData.value;
+        }
+        else{
+          console.error("No se encontro el valor de los skills");
+        }
+      }
+      else{
+        console.error("La respuesta de la API está vacía o no es válida.");
+      }
+    }
+    catch (error) {
+      console.error("Error al obtener los datos de la API:", error);
+   }
+  };
+
   fetchProfilePicture();
+  fetchSpansSkills();
 });
 
 (function() {

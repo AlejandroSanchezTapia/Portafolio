@@ -1376,3 +1376,26 @@ section .container {
   background: linear-gradient(-229deg, #c9daf3, #5865b4);
 }
 
+/* SKILLS */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espaciado entre etiquetas */
+}
+
+.skill {
+  background-color: #161b22; /* Fondo de las etiquetas */
+  color: #58a6ff; /* Texto de las etiquetas */
+  border: 1px solid #30363d; /* Borde */
+  padding: 0.5rem 1rem; /* Espaciado interno */
+  border-radius: 999px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño del texto */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra ligera */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición */
+}
+
+.skill:hover {
+  transform: scale(1.1); /* Zoom al pasar el cursor */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Sombra más marcada */
+}
