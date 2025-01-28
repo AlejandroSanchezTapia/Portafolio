@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded",() => {
   const fetchSpansSkills = async () => {
     try {
       const data = await fetchResources();
+      console.log("Datos de la API:", data);
       if (data && data.length > 0) {
         const profileData = data.find(p => p.name === "skillsContainer");
         if (profileData && profileData.value) {
