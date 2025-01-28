@@ -31,8 +31,10 @@ document.addEventListener("DOMContentLoaded",() => {
     try {
       const data = await fetchResources();
       console.log("Datos de la API:", data);
+      console.log("Datos del valñue de skills:", data);
       if (data && data.length > 0) {
         const profileData = data.find(p => p.name === "skillsContainer");
+        console.log("Datos del valñue de skills:", profileData.value);
         if (profileData && profileData.value) {
           skillsContainer.innerHTML = profileData.value;
         }
