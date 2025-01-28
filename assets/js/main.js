@@ -4,7 +4,7 @@ import { fetchResources } from "/assets/js/apiService.js";
 
 document.addEventListener("DOMContentLoaded",() => {
   const profilePicture = document.getElementById("profile_picture");
-  const skillsContainer = document.querySelector('.skills-container');
+  const skillsContainer = document.getElementById("skillsContainer");
 
   const fetchProfilePicture = async () => {
     try {
