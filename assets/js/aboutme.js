@@ -5,6 +5,7 @@ import { fetchResources } from "/assets/js/apiService.js";
 document.addEventListener("DOMContentLoaded",() => {
   const profilePicture = document.getElementById("profile_picture");
   const skillsContainer = document.getElementById("skillsContainer");
+  const carouselContainer = document.getElementById("skillsContainer");
 
   const fetchProfilePicture = async () => {
     try {
@@ -56,13 +57,13 @@ document.addEventListener("DOMContentLoaded",() => {
       console.log("Datos de la API:", data);
 
       if (data && data.length > 0) {
-        const profileData = data.find(p => p.name === "skillsContainer");
-        console.log("Datos del valñue de skills:", profileData.value);
+        const profileData = data.find(p => p.name === "carouselContainer");
+        console.log("Datos del value de carouselContainer:", profileData.value);
         if (profileData && profileData.value) {
-          skillsContainer.innerHTML = profileData.value;
+          carouselContainer.innerHTML = profileData.value;
         }
         else{
-          console.error("No se encontro el valor de los skills");
+          console.error("No se encontro el valor del carrusel");
         }
       }
       else{
@@ -76,4 +77,5 @@ document.addEventListener("DOMContentLoaded",() => {
 
   fetchProfilePicture();
   fetchSpansSkills();
+  fetchCarrousel();
 });
