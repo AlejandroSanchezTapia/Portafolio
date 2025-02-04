@@ -1,17 +1,22 @@
+import config from '../js/config.js';
 
+// 127.0.0.1 es de live server
+const apiUrlBase = window.location.hostname === '127.0.0.1' ? config.apiUrlBaseDev : config.apiUrlBase;
 
-//const apiUrlBase = "https://localhost:7037/";
-const apiUrlBase = "https://portafoliowebapi-a5g0azgkgzavhacc.mexicocentral-01.azurewebsites.net/";
+console.log('apiUrlBase:', apiUrlBase); // Verificar la URL base
 
 export async function fetchResources() {
+    console.log('fetchPortfolio called'); // Verificar que se llama a la función
     try {
         const response = await fetch(`${apiUrlBase}api/Resource/GetResources`);
-        if (!response.ok){
+        console.log('fetch response:', response); // Verificar la respuesta del fetch
+        if (!response.ok) {
             throw new Error(`Error: ${response.status} ${response.statusText}`);
         }
-        return await response.json();
-    }
-    catch (error) {
+        const data = await response.json();
+        console.log('fetch data:', data); // Verificar los datos recibidos
+        return data;
+    } catch (error) {
         console.error("Error fetching portfolio:", error);
         throw error;
     }
